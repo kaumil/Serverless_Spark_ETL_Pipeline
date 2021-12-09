@@ -3,6 +3,7 @@ occurances_output/
 page_data_output/
 scraped_occurances_urls/
 config.ini
+.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
