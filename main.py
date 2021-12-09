@@ -13,6 +13,7 @@ from api.scraping.scrapers import CADORSPageScrapper, CADORSQueryScrapper
 URL_SCRAPING_FINISHED = True
 OCCURENCE_COUNTER_START = 0
 
+
 def scrape_urls(scraping_config):
     print("Starting to scrape the occurance links of all CADORS incidents")
 
@@ -25,10 +26,11 @@ def scrape_urls(scraping_config):
 
 def scrape_occurences(scraping_config):
     Path(scraping_config["page_data_output_folder"]).mkdir(parents=True, exist_ok=True)
-    Path(scraping_config["scraped_occurances_folder"]).mkdir(parents=True, exist_ok=True
-                                                             )
+    Path(scraping_config["scraped_occurances_folder"]).mkdir(
+        parents=True, exist_ok=True
+    )
     cnt = OCCURENCE_COUNTER_START
-    
+
     print("Starting to scrape page data.")
 
     for file in os.listdir(scraping_config["occurances_output_folder"]):
@@ -43,18 +45,17 @@ def scrape_occurences(scraping_config):
             occurances = json.load(f)  # new logic
 
             for occurance in occurances:
-                
+
                 try:
                     obj = CADORSPageScrapper(url=occurance, config=scraping_config)
                     file_data.append(obj.scrape_data())
                     cnt += 1
-                    print('\n', '>>> Processed record #', cnt)
-                    
+                    print("\n", ">>> Processed record #", cnt)
+
                 except Exception as e:
-                    print('>>>>>>> ERROR: COULD NOT PROCESS RECORD #', cnt, str(e))
+                    print(">>>>>>> ERROR: COULD NOT PROCESS RECORD #", cnt, str(e))
                     logging.error(str(e))
                     time.sleep(5)
-                    
 
         print("Moving file")
         shutil.move(src=src, dst=dest)
@@ -80,11 +81,11 @@ def main(scraping_config):
         scrape_urls(scraping_config)
     scrape_occurences(scraping_config)
 
+
 if __name__ == "__main__":
     config = configparser.ConfigParser()
     config.read("config.ini")
     scraping_config = dict(config.items("scraping"))
-    logging.basicConfig(filename='log.txt', encoding='utf-8', level=logging.ERROR)
+    logging.basicConfig(filename="log.txt", encoding="utf-8", level=logging.ERROR)
 
     main(scraping_config)
-    

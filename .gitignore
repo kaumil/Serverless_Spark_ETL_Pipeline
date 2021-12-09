@@ -4,6 +4,9 @@ page_data_output/
 scraped_occurances_urls/
 config.ini
 .DS_Store
+log.txt
+cadorsqueryscraper.log
+cadorspagescraper.log
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
