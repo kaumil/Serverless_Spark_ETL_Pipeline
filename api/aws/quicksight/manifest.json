@@ -1,0 +1,34 @@
+{
+    "fileLocations": [
+        {
+            "URIPrefixes": [
+                "s3://cadorscmpt732/quicksight/CAlatlong_df/",
+                "s3://cadorscmpt732/quicksight/CAprovince_df/",
+                "s3://cadorscmpt732/quicksight/cluster_full_data/",
+                "s3://cadorscmpt732/quicksight/cluster_result/",
+                "s3://cadorscmpt732/quicksight/cluster_summary/",
+                "s3://cadorscmpt732/quicksight/date_df/",
+                "s3://cadorscmpt732/quicksight/feature_ml_model/",
+                "s3://cadorscmpt732/quicksight/latlong_df/",
+                "s3://cadorscmpt732/quicksight/logistic_regression/",
+                "s3://cadorscmpt732/quicksight/make_df/",
+                "s3://cadorscmpt732/quicksight/mappercountry_df/",
+                "s3://cadorscmpt732/quicksight/mappers/",
+                "s3://cadorscmpt732/quicksight/ml_model_result/",
+                "s3://cadorscmpt732/quicksight/occcat_df/",
+                "s3://cadorscmpt732/quicksight/occtype_df/",
+                "s3://cadorscmpt732/quicksight/operatortype_df/",
+                "s3://cadorscmpt732/quicksight/phaseofflight_df/",
+                "s3://cadorscmpt732/quicksight/province_df/",
+                "s3://cadorscmpt732/quicksight/silhouette_score/",
+                "s3://cadorscmpt732/quicksight/yearbuilt_df/"
+            ]
+        }
+    ],
+    "globalUploadSettings": {
+        "format": "CSV",
+        "delimiter": ",",
+        "textqualifier": "'",
+        "containsHeader": "true"
+    }
+}
