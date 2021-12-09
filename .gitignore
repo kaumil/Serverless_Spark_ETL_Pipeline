@@ -37,7 +37,7 @@ MANIFEST
 occurances_output/
 page_data_output/
 scraped_occurances_urls/
-
+chromedriver.exe
 # PyInstaller
 #  Usually these files are written by a python script from a template
 #  before PyInstaller builds the exe, so as to inject date/other infos into it.
