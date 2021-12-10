@@ -1,9 +1,15 @@
 # cmpt_732
 Project for CMPT 732 Big Data Lab 1
 
+## Frontend URL: www.cadorsmap.ca
+### Account name: cadorsquicksightuser
+### Username: quicksight_reader
+### Password: quicksight@cadorscmpt732
+# Brief Overview:
+* This project is first implemented locally/Google Collab(for the spark ETL). Later, it is modified to work as per the stipulated pipeline on AWS.
+* The code for the two implementations is a bit different. The code for the local part is done under api/ and for the AWS section it is done under aws/.
 
-
-# Scrapping instructions
+# Scraping instructions
 
 * Step 1: Make sure we have VS Code installed.
 * Step 2: Change directory to the folder you want project to be cloned using cd in terminal of VS Code.
