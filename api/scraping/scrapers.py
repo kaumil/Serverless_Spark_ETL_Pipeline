@@ -248,21 +248,20 @@ class CADORSPageScrapper:
             t += 1
             if t == 2:
                 cador_no = x
-            if t==4:
-                occat=[]
-                for li in ele.find('ul'):
+            if t == 4:
+                occat = []
+                for li in ele.find("ul"):
                     ltxt = li.text
                     ltxt = re.sub(" +", " ", ltxt)
                     ltxt = ltxt.strip()
                     # print(ltxt,len(ltxt))
-                    if len(ltxt)!=0:
+                    if len(ltxt) != 0:
                         occat.append(ltxt)
-                
+
         self.page_data["CADORS Number"] = cador_no
-        self.page_data['Occurrence Category']= occat
-        self.page_data['Occurrence Summary']=[]
-        
-        
+        self.page_data["Occurrence Category"] = occat
+        self.page_data["Occurrence Summary"] = []
+
         for ele in panel_body.findAll(
             "section", attrs={"class": "mrgn-bttm-sm panel panel-primary"}
         ):
@@ -295,18 +294,21 @@ class CADORSPageScrapper:
                             self.page_data[key] = val
                         cnt += 1
                         occurance_event_info = occurance_information_section_panel_body.find(
-                    "section", attrs={"class": "mrgn-bttm-sm panel panel-primary bullet_left_15px"}
-                )
+                            "section",
+                            attrs={
+                                "class": "mrgn-bttm-sm panel panel-primary bullet_left_15px"
+                            },
+                        )
                         # print(occurance_event_info)
-                occ_event=[]
+                occ_event = []
                 if occurance_event_info.find("ul") is not None:
                     for li in occurance_event_info.find("ul"):
                         ltxt = li.text
                         ltxt = re.sub(" +", " ", ltxt)
                         ltxt = ltxt.strip()
-                        if len(ltxt)!=0:
+                        if len(ltxt) != 0:
                             occ_event.append(ltxt)
-                self.page_data['Occurrence Event Information'] = occ_event
+                self.page_data["Occurrence Event Information"] = occ_event
             elif res == "Occurrence Summary":
                 a = ele.findAll("div", attrs={"class": "col-md-3 mrgn-bttm-md"})
                 for i in a:
@@ -323,33 +325,35 @@ class CADORSPageScrapper:
                 summary = b.strip()
                 # print('\n','Date:\n',date,'--',len(date),'\n','Summary:\n',summary,'--',len(summary),'\n')
                 # os_g.append({"Date": date, "Summary": summary})
-                self.page_data["Occurrence Summary"].append({"Date": date, "Summary": summary})
-            elif res=='Aircraft Information':
-                air_info_single={}
+                self.page_data["Occurrence Summary"].append(
+                    {"Date": date, "Summary": summary}
+                )
+            elif res == "Aircraft Information":
+                air_info_single = {}
                 aircraft_information_section_panel_body = ele.find(
                     "div", attrs={"class": "panel-body"}
-                )                          
+                )
                 key, val = None, None
                 for row in aircraft_information_section_panel_body.findAll(
                     "div", attrs={"class": "row"}
                 ):
                     items = row.findAll(
                         "div", class_=["col-md-3 mrgn-bttm-md", "col-md-4 mrgn-bttm-md"]
-                    )               
-                    cnt=0
+                    )
+                    cnt = 0
                     for item in items:
                         if cnt % 2 == 0:
                             key = Utils.clean_text(item.text)
-                            air_info_single[key]=[]
+                            air_info_single[key] = []
                         cnt += 1
-                    
+
                 for row in aircraft_information_section_panel_body.findAll(
                     "div", attrs={"class": "row"}
                 ):
                     items = row.findAll(
                         "div", class_=["col-md-3 mrgn-bttm-md", "col-md-4 mrgn-bttm-md"]
-                    )               
-                    cnt=0
+                    )
+                    cnt = 0
                     for item in items:
                         if cnt % 2 == 0:
                             key = Utils.clean_text(item.text)
@@ -358,22 +362,25 @@ class CADORSPageScrapper:
                             # print(val)
                             air_info_single[key].append(val)
                         cnt += 1
-                        
-                air_info_single['Aircraft Event Information']=[]                 
+
+                air_info_single["Aircraft Event Information"] = []
                 aircraft_event_info = aircraft_information_section_panel_body.findAll(
-                    "section", attrs={"class": "mrgn-bttm-sm panel panel-primary bullet_left_15px"}
-                ) 
+                    "section",
+                    attrs={
+                        "class": "mrgn-bttm-sm panel panel-primary bullet_left_15px"
+                    },
+                )
                 for airevent in aircraft_event_info:
                     # print(airevent)
-                    aircraft_event=[]
+                    aircraft_event = []
                     if airevent.find("ul") is not None:
                         for li in airevent.find("ul"):
                             ltxt = li.text
                             ltxt = re.sub(" +", " ", ltxt)
                             ltxt = ltxt.strip()
-                            if len(ltxt)!=0:
+                            if len(ltxt) != 0:
                                 aircraft_event.append(ltxt)
-                    air_info_single['Aircraft Event Information'].append(aircraft_event)
-                            
-                self.page_data['Aircraft Information']=air_info_single
+                    air_info_single["Aircraft Event Information"].append(aircraft_event)
+
+                self.page_data["Aircraft Information"] = air_info_single
         return self.page_data

@@ -10,7 +10,7 @@ import time
 from pathlib import Path
 from api.scraping.scrapers import CADORSPageScrapper, CADORSQueryScrapper
 
-URL_SCRAPING_FINISHED = True
+URL_SCRAPING_FINISHED = False
 OCCURENCE_COUNTER_START = 0
 
 
