@@ -1,10 +1,18 @@
 # cmpt_732
 Project for CMPT 732 Big Data Lab 1
 
+## Contributors
+[Kaumil Trivedi](https://github.com/kaumil)
+[Gurashish Singh Suri](https://github.com/Gurashish)
+[Arshdeep Singh Ahuja](https://github.com/arshahuja)
+[Gabriel Xu Henderson](https://github.com/Gabriel737)
+
 ## Frontend URL: www.cadorsmap.ca
 ### Account name: cadorsquicksightuser
 ### Username: quicksight_reader
 ### Password: quicksight@cadorscmpt732
+
+
 # Brief Overview:
 * This project is first implemented locally/Google Collab(for the spark ETL). Later, it is modified to work as per the stipulated pipeline on AWS.
 * The code for the two implementations is a bit different. The code for the local part is done under api/ and for the AWS section it is done under aws/.
